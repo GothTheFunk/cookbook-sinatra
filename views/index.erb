@@ -1,0 +1,9 @@
+<h1>Voici les recettes !</h1>
+<% @list.each do |recipe| %>
+  <li>
+    <% recipe.done? ? done = "X" : done = " " %>
+    [<%= done %>] <%= recipe.name %> - <%= recipe.rating%>/5 (<%= recipe.preptime%>)
+  </li>
+<% end %>
+
+<a href = /new >New recipe !</a>
