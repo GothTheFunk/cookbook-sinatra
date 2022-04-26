@@ -26,10 +26,11 @@ get "/new" do
    erb :new
 end
 
-post "/new" do
-    name = params["name"]
-    description = params["description"]
-    rating = params["rating"]
+post "/recipe" do
+    name = params[:name]
+    description = params[:description]
+    rating = params[:rating]
     new_recipe = Recipe.new(name: params["name"], description: params["description"], rating: rating, preptime: "unknown", done: false)
     cookbook.add_recipe(new_recipe)
+    redirect to("/")
 end
